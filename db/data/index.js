@@ -1,4 +1,4 @@
-module.exports = [
+exports.quoteData = [
   {
     topic: "being",
     body:
