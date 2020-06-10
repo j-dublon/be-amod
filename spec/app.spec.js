@@ -50,6 +50,15 @@ describe("app", () => {
               expect(body.length).to.equal(6);
             });
         });
+        it("status: 404 if given valid but non-existent topic", () => {
+          return request(app)
+            .get("/api/dogs")
+            .expect(404)
+            .then(({ body: { msg } }) => {
+              expect(msg).to.equal("topic not found");
+            });
+        });
+        //it("status: 400 if given invalid topic");
       });
     });
   });
