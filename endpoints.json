@@ -1,0 +1,26 @@
+{
+  "GET /api": {
+    "description": "serves up a json representation of all the available endpoints of the api"
+  },
+  "GET /:topic": {
+    "description": "serves an array of all quotes with specified topic",
+    "exampleResponse": {
+      "quotes": [
+        {
+          "topic": "longing",
+          "body": "A quote about longing",
+          "author": "a famous person",
+          "work": "a book",
+          "quote_id": "1"
+        },
+        {
+          "topic": "longing",
+          "body": "A longer quote about longing",
+          "author": "some other famous person",
+          "work": "a speech",
+          "quote_id": "2"
+        }
+      ]
+    }
+  }
+}

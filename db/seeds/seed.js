@@ -5,10 +5,6 @@ exports.seed = function (knex) {
     .rollback()
     .then(() => knex.migrate.latest())
     .then(() => {
-      return knex
-        .insert(quoteData)
-        .into("all_quotes")
-        .returning("*")
-        .then((insertedQuotes) => console.log(insertedQuotes));
+      return knex.insert(quoteData).into("all_quotes").returning("*");
     });
 };
