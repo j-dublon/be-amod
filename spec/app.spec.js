@@ -23,6 +23,18 @@ describe("app", () => {
           .expect(200)
           .expect("Content-Type", /json/);
       });
+      it("status: 405 for invalid methods", () => {
+        const invalidMethods = ["patch", "post", "delete"];
+        const methodPromises = invalidMethods.map((method) => {
+          return request(app)
+            [method]("/api")
+            .expect(405)
+            .then(({ body: { msg } }) => {
+              expect(msg).to.equal("method not allowed");
+            });
+        });
+        return Promise.all(methodPromises);
+      });
     });
     describe("/api/:topic", () => {
       describe("GET", () => {
@@ -57,6 +69,18 @@ describe("app", () => {
             .then(({ body: { msg } }) => {
               expect(msg).to.equal("topic not found");
             });
+        });
+        it("status: 405 for invalid methods", () => {
+          const invalidMethods = ["patch", "post", "delete"];
+          const methodPromises = invalidMethods.map((method) => {
+            return request(app)
+              [method]("/api")
+              .expect(405)
+              .then(({ body: { msg } }) => {
+                expect(msg).to.equal("method not allowed");
+              });
+          });
+          return Promise.all(methodPromises);
         });
       });
     });

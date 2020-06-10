@@ -10,3 +10,7 @@ exports.handle500s = (err, req, res, next) => {
 exports.handleInvalidPaths = (req, res) => {
   res.status(404).send({ msg: "path not found" });
 };
+
+exports.send405Error = (req, res) => {
+  res.status(405).send({ msg: "method not allowed" });
+};
