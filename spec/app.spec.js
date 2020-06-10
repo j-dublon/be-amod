@@ -50,7 +50,7 @@ describe("app", () => {
               expect(body.length).to.equal(6);
             });
         });
-        it("status: 404 if given valid but non-existent topic", () => {
+        it("status: 404 if given invalid topic", () => {
           return request(app)
             .get("/api/dogs")
             .expect(404)
@@ -58,7 +58,6 @@ describe("app", () => {
               expect(msg).to.equal("topic not found");
             });
         });
-        //it("status: 400 if given invalid topic");
       });
     });
   });
