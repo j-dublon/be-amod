@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "setup-db": "psql -f ./db/setup-db.sql",
+    "seed": "npm run setup-db && knex seed:run",
     "test": "mocha spec/app.spec.js",
     "dev": "nodemon listen.js",
-    "seed": "npm run setup-db && knex seed:run"
+    "migrate-make": "knex migrate:make",
+    "migrate-latest": "knex migrate:latest",
+    "migrate-rollback": "knex migrate:rollback"
   },
   "keywords": [],
   "author": "",
