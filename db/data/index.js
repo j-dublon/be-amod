@@ -113,7 +113,7 @@ exports.quoteData = [
     body:
       "He'd say I'd crossed the line. Stupid English expressions. What line? Where? Oh yes. The line that you drew between me and everything I want to say and be.",
     author: "Scarlett Thomas",
-    work: "The End of Mr Y.",
+    work: "The End of Mr Y",
   },
   {
     topic: "being",
